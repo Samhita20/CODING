@@ -1,0 +1,44 @@
+Alice and Bob play the following game.They choose a number N to play with.The runs are as follows :
+
+1.Bob plays first and the two players alternate.
+
+2.In his/her turn ,a player can subtract from N any prime number(including 1) less than N.The number thus obtained is the new N.
+
+3.The person who cannot make a move in his/her turn loses the game.
+
+Assuming both play optimally,who wins the game ?
+
+
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+    public static String numberGame(int n)
+    {
+        if(n==1)
+            return "ALICE";
+        else if((n-1)%4==0)
+            return "ALICE";
+        else
+            return "BOB";
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner scanner = new Scanner(System.in);
+		int t=0;
+		int n=0;
+		if(scanner.hasNextInt())
+		t = scanner.nextInt();
+		for(int i=0;i<t;i++) {
+		  	n = scanner.nextInt();
+		    System.out.println(numberGame(n));  
+		}
+	
+	}
+}
