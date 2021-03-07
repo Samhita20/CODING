@@ -1,0 +1,32 @@
+Rohit dreams he is in a shop with an infinite amount of marbles. He is allowed to select n marbles. 
+There are marbles of k different colors. From each color there are also infinitely many marbles. 
+Rohit wants to have at least one marble of each color, but still there are a lot of possibilities for his selection. In his effort to make a decision he wakes up. 
+Now he asks you how many possibilities for his selection he would have had. Assume that marbles of equal color can't be distinguished, and the order of the marbles is irrelevant.
+
+public static long nCr(int n,int r) //nCr value will be long, if intis used wrong answer will be generated
+    {
+        long ans = 1L;
+        if(r> n-r)
+            r = n-r;
+        if(r==1)
+            return n;
+        if(r==0)
+            return 1;
+        for(int i=1;i<=r;i++)
+        {
+            ans *= (n-i+1);
+            ans /= i;
+        }
+        return ans;
+    }
+    
+    public static long noOfMarbles(int n,int k)
+    {
+        int N = n-k;
+        if(N==0)
+            return 1;
+        else
+            return nCr(N+k-1,N);
+    }
+    
+    https://www.codechef.com/problems/MARBLES - link for question
