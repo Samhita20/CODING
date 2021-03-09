@@ -1,0 +1,27 @@
+https://www.codechef.com/problems/TLG
+
+public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int n=0;
+		int p=0;
+		int q=0;
+		int leadP = Integer.MIN_VALUE;
+		int leadQ = Integer.MIN_VALUE;
+		if(sc.hasNextInt())
+		n =  sc.nextInt();
+		for(int i=0;i<n;i++)
+		{
+		    p += sc.nextInt();  //calculating cumulative scores
+		    q += sc.nextInt();
+		    if(p>q)               // calculate the lead, based on whose score is greater
+		        leadP = Math.max(leadP,p-q);  // max leadP if player1 is in the lead
+		    else
+		        leadQ = Math.max(leadQ,q-p);  //max leadQ if player2 is in the lead
+		}
+		if(leadP>leadQ)  // check whose lead is greater and print the corresponding player 
+		    System.out.println("1 "+leadP);
+		else
+		    System.out.println("2 "+leadQ);
+	}
+}
