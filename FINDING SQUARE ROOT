@@ -1,0 +1,6 @@
+Find square root using in-built method and rount it off
+
+System.out.println(Math.round(Math.floor(Math.sqrt(n))));
+
+
+https://www.codechef.com/problems/FSQRT
