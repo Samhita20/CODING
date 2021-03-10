@@ -1,0 +1,12 @@
+https://www.codechef.com/problems/HORSES
+
+
+Arrays.sort(skill);
+		    long min = Long.MAX_VALUE;
+            for(int i = 0; i < skill.length-1; i++)
+		    {
+		        long diff = Math.abs(skill[i]-skill[i+1]);
+		        if(diff < min)
+		            min = diff;
+		    }
+		    System.out.println(min);
