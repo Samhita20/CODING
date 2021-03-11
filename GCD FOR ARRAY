@@ -1,0 +1,17 @@
+public static int gcd(int a, int b)
+    {
+        if(a==0)
+            return b;
+        return gcd(b%a,a);
+    }
+    public static int findGCD(int[] a,int n)
+    {
+        int result = 0;
+        for(int ele:a)
+        {
+            result = gcd(result,ele);
+            if(result==1)
+                return 1;
+        }
+        return result;
+    }
