@@ -1,0 +1,40 @@
+Let's consider a triangle of numbers in which a number appears in the first line, two numbers appear in the second line, three in the third line, etc. Develop a program which will compute the largest of the sums of numbers that appear on the paths starting from the top towards the base, so that:
+
+on each path the next number is located on the row below, more precisely either directly below or below and one place to the right;
+the number of rows is strictly positive, but less than 100
+all numbers are positive integers between 0 and 99.
+
+
+public static int maxSum(int[][] arr, int n)
+    {
+        for(int i = n-2; i >=0; i--) //bottom-up approach, start from the end
+		    {
+		        for(int j =0 ; j < arr[i].length-1; j++)
+		        {                                                       // select the max of the just above and above
+		            arr[i][j] += Math.max(arr[i+1][j], arr[i+1][j+1]);  //[i+1][j] indicates the number just above and [i+1][j+1] indicates the number which is to the 
+                                                                                                                                right of the number just above
+		        }
+		    }
+		    return arr[0][0];
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t--!=0)
+		{
+		    int n = sc.nextInt();
+		    int[][] arr = new int[n][];
+		     
+		    for(int i = 0 ; i < n ; i++)  // reading of 2d array when only number of rows is knowm
+		    {
+		        arr[i] = new int[i+2];
+		        for(int j = 0 ; j <= i ; j++)
+		        {
+		            arr[i][j] = sc.nextInt();
+		        }
+		    }
+		    System.out.println(maxSum(arr,n));
+		    
+		}
+	}
