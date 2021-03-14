@@ -1,0 +1,23 @@
+To find if a subset is present in array having sum = required sum
+// m = sum in program
+
+public static boolean isMoneyPresent(int[] a, int n, int m)
+    {
+        boolean[][] subset = new boolean[n+1][m+1]; // will be true if there is a set[0...j-1] with sum i
+        for(int i=0;i<=n;i++)
+            subset[i][0] = true; // if sum=0, subset is true
+        // if sum is not 0 and and set is empty subset is false
+        for(int i=1;i<=m;i++)
+            subset[0][i] = false;
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=m;j++)
+            {
+                if(a[i-1]>j)// if current element is greater than the sum
+                    subset[i][j] = subset[i-1][j]; // we will copy the previous case into the current case
+                else// if current eleent is less than the sum
+                    subset[i][j] = subset[i-1][j] | subset[i - 1][j - a[i-1]]; // we will see if any of the previous cases have experienced sum = j or sum = j-a[i]
+            }
+        }
+        return subset[n][m];
+    }
