@@ -1,0 +1,24 @@
+The chef has just finished baking several pies, and it's time to place them on cooling racks. The chef has exactly as many cooling racks as pies.
+Each cooling rack can only hold one pie, and each pie may only be held by one cooling rack, but the chef isn't confident that the cooling racks can support the weight of the pies. 
+The chef knows the weight of each pie, and has assigned each cooling rack a maximum weight limit. What is the maximum number of pies the chef can cool on the racks?
+
+
+ArrayList<Integer> visited = new ArrayList<Integer>();
+		    Arrays.sort(pipes);
+		    Arrays.sort(racks);
+		    int count = 0;
+		    for(int i=0;i<n;i++)
+		    {
+		        for(int j=0;j<n;j++)
+		        {
+		            if(visited.contains(j)==false)
+		            {
+		                if(pipes[i]<=racks[j])
+		                {
+		                    count++;
+		                    visited.add(j);
+		                    break;
+		                }
+		            }
+		        }
+		    }
