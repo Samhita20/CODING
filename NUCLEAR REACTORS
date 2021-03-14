@@ -1,0 +1,35 @@
+There are K nuclear reactor chambers labelled from 0 to K-1. Particles are bombarded onto chamber 0. The particles keep collecting in the chamber 0. 
+However if at any time, there are more than N particles in a chamber, a reaction will cause 1 particle to move to the immediate next chamber
+(if current chamber is 0, then to chamber number 1), and all the particles in the current chamber will be be destroyed and same continues till 
+no chamber has number of particles greater than N. Given K,N and the total number of particles bombarded (A), find the final distribution of particles in the K chambers. 
+Particles are bombarded one at a time. After one particle is bombarded, the set of reactions, as described, take place. 
+After all reactions are over, the next particle is bombarded. If a particle is going out from the last chamber, it has nowhere to go and is lost.
+
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		long a = sc.nextLong();
+		int n = sc.nextInt();
+		int k = sc.nextInt();
+		int[] chamber = new int[k];
+	    for(int i=1;i<=a;i++)
+		{
+		    chamber[0] += 1; // the particles always start from the 1st chamber 
+		    if(chamber[0]>n)
+		    {
+		        chamber[0] = 0; // if the particles in chamber 1 have exceeded the max size, all of 
+		                        //them are bombarded
+		        for(int j=1;j<k;j++) 
+		        {
+		            chamber[j] += 1; // the particle is then sent to the next chamber
+		            if(chamber[j]<=n) // if the chamber has space the next particle is taken and
+		                break;  // comes out of inner loop
+		            else // if chamber couunt exceeded
+		                chamber[j] = 0; // bombarded particles
+		        }
+		    }
+		    
+		}
+		for(int i=0;i<k;i++)
+		    System.out.print(chamber[i]+" ");
+	}
