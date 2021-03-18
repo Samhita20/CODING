@@ -1,0 +1,42 @@
+The chef is preparing a birthday cake for one of his guests, and his decided to write the age of the guest in candles on the cake. 
+There are 10 types of candles, one for each of the digits '0' through '9'. The chef has forgotten the age of the guest, 
+however, so doesn't know whether he has enough candles of the right types. For example, if the guest were 101 years old, the chef would need two '1' 
+candles and one '0' candle. Given the candles the chef has, your task is to determine the smallest positive integer that cannot be represented with those candles.
+
+public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t--!=0)
+		{
+		    int arr[]=new int[10];
+	        int min=Integer.MAX_VALUE, index = 0;
+	        String str = "";
+	        
+	        arr[0] = sc.nextInt();
+	        
+	        // Find min frequency of digit 1- 9
+	        for(int i=1;i<10;i++)
+	        {
+	            arr[i] = sc.nextInt();
+	            if(arr[i] < min)
+	            {
+	                min=arr[i];
+	                index=i;
+	            }
+	        }
+	        
+	        if(arr[0] < min)
+	        {
+    	        min = arr[0];
+    	        index = 0;
+    	        str += "1";
+	        }
+	    
+    	    while(min >= 0){
+    	        str += String.valueOf(index);
+    	        min--;
+    	    }
+    	    System.out.println(str);
+	    }
+	}
