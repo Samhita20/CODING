@@ -1,0 +1,27 @@
+Olya has written N binary integers (i.e. either zero or one) on a blackboard. She recently learned about XOR operation. 
+Now she wants to erase exactly one integer in the array so that the XOR of the remaining N - 1 numbers is zero. 
+Please help her to calculate the number of ways of doing so.
+
+public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t--!=0)
+		{
+		    int n = sc.nextInt();
+		    int[] binary = new int[n];
+		    int oneCount = 0, zeroCount=0;
+		    for(int i=0;i<n;i++)
+		    {
+		        binary[i] = sc.nextInt();
+		        if(binary[i]==1)
+		            oneCount++;
+		        else
+		            zeroCount++;
+		    }
+		    if(oneCount%2==0) // 1 and 1 make a zero in xor, so we can select any of the zeroes to be reoved
+		        System.out.println(zeroCount);
+		    else // 1 and 0 make 1, we select the ones to be removed so tha only zeroe are left
+		        System.out.println(oneCount);
+		}
+	}
