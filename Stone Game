@@ -1,0 +1,23 @@
+Alice and Bob play the following game : There are N piles of stones with Si stones in the ith pile. Piles are numbered from 1 to N. 
+Alice and Bob play alternately, with Alice starting. In a turn, the player chooses any pile i which has atleast i stones in it, and removes exactly i stones from it. 
+The game ends when there is no such pile. The player who plays last wins the game. Assuming Alice and Bob play optimally, who will win the game?
+
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t--!=0)
+		{
+		    int n = sc.nextInt();
+		    int[] piles = new int[n];
+		    for(int i=0;i<n;i++)
+		        piles[i] = sc.nextInt();
+		    int count = 0;
+		    for(int i=0;i<n;i++)
+		        count += piles[i]/(i+1);
+		    if(count%2==0)
+		        System.out.println("BOB");
+		    else
+		        System.out.println("ALICE");
+		}
+	}
