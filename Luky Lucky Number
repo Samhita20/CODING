@@ -1,0 +1,37 @@
+Every great chef knows that lucky numbers are positive integers whose decimal representations contain only the lucky digits 4 and 7. For example, numbers 47, 744, 4 are lucky and 5, 17, 467 are not.
+
+Our chef has recently returned from the Lucky country. He observed that every restaurant in the Lucky country had a lucky number as its name. He believes that having a lucky number as a restaurant name can indeed turn out to be very lucky.
+
+Our chef believes that it is possible to make a lucky number having N digits even luckier. Any number following the rules below is called Lucky lucky number -
+
+1. The number contains only digits 4 and 7.
+2. Count of digit 4 in the number should be divisible by 7.
+3. Count of digit 7 in the number should be divisible by 4.
+
+Help our chef to compute the count of digit 4 in the smallest Lucky lucky number having N digits.
+
+public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0)
+		{ 	int n=sc.nextInt();
+		     int ans=0;
+		     if(n%7==0)ans=n;
+		    if(n%7==1)ans=n-4*2;
+		    if(n%7==2)ans=n-4*4;
+		    if(n%7==3)ans=n-4*6;
+		    if(n%7==4)ans=n-4*1;
+		    if(n%7==5)ans=n-4*3;
+		    if(n%7==6)ans=n-4*5;
+		    if(ans<0){
+		        if(n%4==0)System.out.print("n");
+		        else System.out.print("-1");
+		        System.out.println();
+		    }
+		    else{
+		        System.out.println(ans);
+		    }
+		}
+	}
